@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatR.Notifications", "Me
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatR.Queries", "MediatR.Queries\MediatR.Queries.csproj", "{DA3D0642-1EBF-42B5-B172-792F09F77A87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatR.WebApi", "MediatR.WebApi\MediatR.WebApi.csproj", "{EC4CE9E1-70BC-4F56-AB89-3B8C6D83523C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DA3D0642-1EBF-42B5-B172-792F09F77A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA3D0642-1EBF-42B5-B172-792F09F77A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA3D0642-1EBF-42B5-B172-792F09F77A87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC4CE9E1-70BC-4F56-AB89-3B8C6D83523C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4CE9E1-70BC-4F56-AB89-3B8C6D83523C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4CE9E1-70BC-4F56-AB89-3B8C6D83523C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4CE9E1-70BC-4F56-AB89-3B8C6D83523C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
