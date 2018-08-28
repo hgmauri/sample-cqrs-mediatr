@@ -20,7 +20,7 @@ namespace MediatR.WebApi
                 .MinimumLevel.Debug()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
-                .WriteTo.Console()
+                .WriteTo.LiterateConsole()
                 .CreateLogger();
 
             CreateWebHostBuilder(args).Build().Run();

@@ -34,7 +34,7 @@ namespace MediatR.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             BuildMediator(services);
-
+            services.AddRouting();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -49,7 +49,15 @@ namespace MediatR.WebApi
                 app.UseHsts();
             }
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}",
+                    defaults: new { controller = "queries", action = "productbyidquery" }
+                );
+            });
+
         }
 
         private static IMediator BuildMediator(IServiceCollection services)
