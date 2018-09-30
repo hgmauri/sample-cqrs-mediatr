@@ -35,6 +35,7 @@ namespace MediatR.WebApi
         {
             BuildMediator(services);
             services.AddRouting();
+            services.AddCors();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
