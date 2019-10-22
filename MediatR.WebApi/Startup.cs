@@ -1,24 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Threading.Tasks;
 using MediatR.Commands.ProductSaveCommand;
 using MediatR.Commands.ProductSaveCommandAsync;
 using MediatR.Notifications.ProductSavedNotification;
 using MediatR.Notifications.ProductSavedNotificationAsync;
-using MediatR.Pipeline;
 using MediatR.Queries.ProductByIdQuery;
 using MediatR.Queries.ProductByIdQueryAsync;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
 
 namespace MediatR.WebApi
 {
@@ -34,14 +25,18 @@ namespace MediatR.WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             BuildMediator(services);
+
             services.AddRouting();
             services.AddCors();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddMvc()
+                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver())
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.EnvironmentName == "Development")
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -50,15 +45,15 @@ namespace MediatR.WebApi
                 app.UseHsts();
             }
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action}",
-                    defaults: new { controller = "queries", action = "productbyidquery" }
-                );
-            });
+            app.UseRouting();
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=queries}/{action=productbyidquery}");
+                endpoints.MapRazorPages();
+            });
         }
 
         private static IMediator BuildMediator(IServiceCollection services)
