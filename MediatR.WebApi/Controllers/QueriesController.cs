@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using MediatR.Queries.ProductByIdQuery;
 using MediatR.Queries.ProductByIdQueryAsync;

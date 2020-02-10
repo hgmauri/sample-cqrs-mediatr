@@ -1,14 +1,10 @@
-using MediatR.Commands.ProductSaveCommand;
-using MediatR.Commands.ProductSaveCommandAsync;
-using MediatR.Notifications.ProductSavedNotification;
-using MediatR.Notifications.ProductSavedNotificationAsync;
 using MediatR.Queries.ProductByIdQuery;
-using MediatR.Queries.ProductByIdQueryAsync;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
 
 namespace MediatR.WebApi
@@ -36,7 +32,7 @@ namespace MediatR.WebApi
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.EnvironmentName == "Development")
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -60,16 +56,7 @@ namespace MediatR.WebApi
         {
             services.AddScoped<ServiceFactory>(p => p.GetService);
 
-            services.Scan(scan => scan
-                .FromAssembliesOf(typeof(IMediator),
-                    typeof(ProductByIdQueryHandler),
-                    typeof(ProductByIdQueryAsyncHandler),
-                    typeof(ProductSaveCommandHandler),
-                    typeof(ProductSaveCommandAsyncHandler),
-                    typeof(ProductSavedNotificationFirstHandler),
-                    typeof(ProductSavedNotificationAsyncFirstHandler))
-                .AddClasses()
-                .AsImplementedInterfaces());
+            services.AddMediatR(typeof(ProductByIdQueryHandler));
 
             var provider = services.BuildServiceProvider();
 
