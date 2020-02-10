@@ -25,6 +25,9 @@ namespace MediatR.WebApi
             services.AddRouting();
             services.AddCors();
 
+            services.AddResponseCompression();
+            services.AddResponseCaching();
+
             services.AddMvc()
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver())
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -43,13 +46,12 @@ namespace MediatR.WebApi
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=queries}/{action=productbyidquery}");
-                endpoints.MapRazorPages();
-            });
+            app.UseResponseCompression();
+
+            app.UseResponseCaching();
+
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
         }
 
         private static IMediator BuildMediator(IServiceCollection services)
