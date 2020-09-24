@@ -1,9 +1,10 @@
 # SimpleCQRSWithMediatR
-CQRS with MediatR in .NET Core 2.1
+CQRS with MediatR in .NET Core 3.1
 
 ### Todos
-- [x] WebAPI .Net Core 2.1
-- [x] Serilog (All projects)
+- [x] WebAPI .Net Core 3.1
+- [x] MediatR 
+- [x] Serilog 
 - [x] Scrutor
-- [ ] Entity Framework 2.1 (Command project)
-- [ ] SignalR 2.3.0 (Notification/Push project)
+- [ ] Entity Framework
+- [ ] SignalR
