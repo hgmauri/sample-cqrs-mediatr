@@ -17,9 +17,9 @@ namespace MediatR.WebApi.Controllers
         [HttpPost("product")]
         public async Task<IActionResult> PostProduct([FromBody] ProductSaveCommandAsync product)
         {
-            var plastico = await _mediator.Send(product);
+            var command = await _mediator.Send(product);
 
-            return Json(plastico);
+            return Json(command);
         }
     }
 }
