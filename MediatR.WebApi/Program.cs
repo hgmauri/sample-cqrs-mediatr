@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Serilog;
@@ -16,7 +17,20 @@ namespace MediatR.WebApi
                 .WriteTo.LiterateConsole()
                 .CreateLogger();
 
-            CreateWebHostBuilder(args).Build().Run();
+            try
+            {
+                Log.Information("Getting the motors running...");
+
+                CreateWebHostBuilder(args).Build().Run();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Host terminated unexpectedly");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
