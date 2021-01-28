@@ -19,18 +19,18 @@ namespace MediatR.WebApi.Controllers
         public async Task<IActionResult> ProductByIdQuery()
         {
             var query = new ProductByIdQuery { Id = 1 };
-            var plastico = await _mediator.Send(query);
+            var queryProduct = await _mediator.Send(query);
 
-            return Json(plastico);
+            return Json(queryProduct);
         }
 
         [HttpGet("productbyidqueryasync")]
         public async Task<IActionResult> ProductByIdQueryAsync()
         {
             var query = new ProductByIdQueryAsync { Id = 1 };
-            var plastico = await _mediator.Send(query);
+            var queryProduct = await _mediator.Send(query);
 
-            return Json(plastico);
+            return Json(queryProduct);
         }
 
     }
