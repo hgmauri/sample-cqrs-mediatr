@@ -14,7 +14,6 @@ namespace MediatR.WebApi
                 .MinimumLevel.Debug()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
                 .Enrich.FromLogContext()
-                .WriteTo.LiterateConsole()
                 .CreateLogger();
 
             try
