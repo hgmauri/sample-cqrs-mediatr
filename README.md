@@ -1,4 +1,4 @@
-# SimpleCQRSWithMediatR
+# sample-cqrs-mediatr
 CQRS with MediatR in .NET 5.0
 
 ### Todos
