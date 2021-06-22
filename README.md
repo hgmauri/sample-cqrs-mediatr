@@ -1,7 +1,7 @@
 # SimpleCQRSWithMediatR
-CQRS with MediatR in .NET Core 3.1
+CQRS with MediatR in .NET 5.0
 
 ### Todos
-- [x] WebAPI .Net Core 3.1
+- [x] WebAPI .Net 5.0
 - [x] MediatR 
 - [x] Serilog 
