@@ -2,7 +2,7 @@
 CQRS with MediatR in .NET 5.0
 
 ### Todos
-- [x] .Net 5.0
+- [x] .NET 5.0
 - [x] MediatR 
 - [x] Swagger 
 - [x] Serilog 
