@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.MediatR.Application", "src\Sample.MediatR.Application\Sample.MediatR.Application.csproj", "{45425E0A-B816-43F5-8C45-1767AD3AD21C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.MediatR.WebApi", "src\Sample.MediatR.WebApi\Sample.MediatR.WebApi.csproj", "{07F74506-E108-4939-ABD6-D6712FB5BED7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.MediatR.WebApi.Core", "src\Sample.MediatR.WebApi.Core\Sample.MediatR.WebApi.Core.csproj", "{04875390-7C1B-4A7D-8BFB-27B7D969E759}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45425E0A-B816-43F5-8C45-1767AD3AD21C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45425E0A-B816-43F5-8C45-1767AD3AD21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45425E0A-B816-43F5-8C45-1767AD3AD21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45425E0A-B816-43F5-8C45-1767AD3AD21C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07F74506-E108-4939-ABD6-D6712FB5BED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F74506-E108-4939-ABD6-D6712FB5BED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F74506-E108-4939-ABD6-D6712FB5BED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F74506-E108-4939-ABD6-D6712FB5BED7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04875390-7C1B-4A7D-8BFB-27B7D969E759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04875390-7C1B-4A7D-8BFB-27B7D969E759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04875390-7C1B-4A7D-8BFB-27B7D969E759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04875390-7C1B-4A7D-8BFB-27B7D969E759}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D29E38B0-50AB-43F3-80FC-BF451088F15F}
+	EndGlobalSection
+EndGlobal
