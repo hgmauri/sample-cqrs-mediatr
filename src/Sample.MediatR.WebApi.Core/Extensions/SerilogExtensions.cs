@@ -9,9 +9,8 @@ public static class SerilogExtensions
     {
         Log.Logger = new LoggerConfiguration()
             .ReadFrom.Configuration(configuration)
-            .Enrich.WithProperty("ApplicationName", $"API MediatR - {Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT")}")
+            .Enrich.WithProperty("ApplicationName", "API MediatR")
             .Enrich.FromLogContext()
-            .WriteTo.Console()
             .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj} {Properties:j}{NewLine}{Exception}")
             .CreateLogger();
     }

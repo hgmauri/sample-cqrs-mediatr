@@ -7,10 +7,10 @@ namespace Sample.MediatR.Application.Queries.ProductByIdQuery;
 
 public class ProductByIdQueryHandler : IRequestHandler<ProductByIdQuery, ProductByIdQueryResult>
 {
-    public Task<ProductByIdQueryResult> Handle(ProductByIdQuery request, CancellationToken cancellationToken)
+    public async Task<ProductByIdQueryResult> Handle(ProductByIdQuery request, CancellationToken cancellationToken)
     {
-        Log.Information("ProductByIdQueryAsyncHandler.Handle(ProductByIdQueryAsync)");
+        Log.Information("Query performed successfully");
 
-        return Task.FromResult(new ProductByIdQueryResult { Id = request.Id, Description = $"Description {request.Id}" });
+        return await Task.FromResult(new ProductByIdQueryResult { Id = request.Id, Description = $"Description {request.Id}" });
     }
 }

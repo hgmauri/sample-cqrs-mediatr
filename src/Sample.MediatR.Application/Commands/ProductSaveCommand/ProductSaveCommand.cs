@@ -1,9 +1,10 @@
+using System;
 using MediatR;
 
 namespace Sample.MediatR.Application.Commands.ProductSaveCommand;
 
-public class ProductSaveCommand : IRequest
+public class ProductSaveCommand : IRequest<string>
 {
-    public long Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public string Description { get; set; }
 }

@@ -22,4 +22,3 @@ public class CommandsController : Controller
         return Json(command);
     }
 }
-

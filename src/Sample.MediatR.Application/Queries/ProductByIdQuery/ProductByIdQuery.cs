@@ -6,3 +6,9 @@ public class ProductByIdQuery : IRequest<ProductByIdQueryResult>
 {
     public long Id { get; set; }
 }
+
+public class ProductByIdQueryResult
+{
+    public long Id { get; set; }
+    public string Description { get; set; }
+}

@@ -14,10 +14,10 @@ public class QueriesController : Controller
         _mediator = mediator;
     }
 
-    [HttpGet("productbyidquery")]
-    public async Task<IActionResult> GetProductByIdAsync()
+    [HttpGet("product")]
+    public async Task<IActionResult> GetProductByIdAsync([FromQuery] int id)
     {
-        var query = new ProductByIdQuery { Id = 1 };
+        var query = new ProductByIdQuery { Id = id };
         var queryProduct = await _mediator.Send(query);
 
         return Json(queryProduct);
