@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Sample.MediatR.Application.Notifications.ProductSavedNotification;
 using Sample.MediatR.Application.Notifications.SendEmailNotification;
+using Serilog;
 
 namespace Sample.MediatR.Application.Commands.ProductSaveCommand;
 
@@ -18,7 +19,7 @@ public class ProductSaveCommandHandler : IRequestHandler<ProductSaveCommand, str
     public async Task<string> Handle(ProductSaveCommand request, CancellationToken cancellationToken)
     {
         //insert product in database
-        Serilog.Log.Information($"Product saved successfully. Id: {request.Id}");
+        Log.Information($"Product saved successfully. Id: {request.Id}");
 
         await _mediator.Publish(new ProductSavedNotification { Id = request.Id }, cancellationToken);
         await _mediator.Publish(new SendEmailNotification { Email = "test@mail.com" }, cancellationToken);
