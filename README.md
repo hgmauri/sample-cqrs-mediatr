@@ -1,8 +1,8 @@
 # sample-cqrs-mediatr
-CQRS with MediatR in .NET 6.0
+CQRS with MediatR in .NET 7.0
 
 ### 
-- [x] .NET 6.0
+- [x] .NET 7.0
 - [x] MediatR 
 - [x] Swagger 
 - [x] Serilog 
