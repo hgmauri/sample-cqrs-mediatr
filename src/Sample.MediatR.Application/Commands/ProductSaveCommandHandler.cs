@@ -1,11 +1,11 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Sample.MediatR.Application.Notifications.ProductSavedNotification;
-using Sample.MediatR.Application.Notifications.SendEmailNotification;
+using Sample.MediatR.Application.Notifications;
 using Serilog;
 
-namespace Sample.MediatR.Application.Commands.ProductSaveCommand;
+namespace Sample.MediatR.Application.Commands;
 
 public class ProductSaveCommandHandler : IRequestHandler<ProductSaveCommand, string>
 {
@@ -26,4 +26,10 @@ public class ProductSaveCommandHandler : IRequestHandler<ProductSaveCommand, str
 
         return await Task.FromResult("Ok");
     }
+}
+
+public class ProductSaveCommand : IRequest<string>
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public string Description { get; set; }
 }

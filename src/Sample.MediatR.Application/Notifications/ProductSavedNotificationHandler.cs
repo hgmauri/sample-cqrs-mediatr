@@ -1,9 +1,10 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Serilog;
 
-namespace Sample.MediatR.Application.Notifications.ProductSavedNotification;
+namespace Sample.MediatR.Application.Notifications;
 
 public class ProductSavedNotificationHandler : INotificationHandler<ProductSavedNotification>
 {
@@ -11,4 +12,9 @@ public class ProductSavedNotificationHandler : INotificationHandler<ProductSaved
     {
         return Task.Run(() => Log.Information($"Successful product event. Id: {notification.Id}"));
     }
+}
+
+public class ProductSavedNotification : INotification
+{
+    public Guid Id { get; set; }
 }

@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddMediatRApi();
+builder.Services.AddMassTransitExtension();
 
 var app = builder.Build();
 

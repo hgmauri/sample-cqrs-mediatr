@@ -1,6 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Sample.MediatR.Application.Queries.ProductByIdQuery;
+using Sample.MediatR.Application.Queries;
 
 namespace Sample.MediatR.WebApi.Controllers;
 

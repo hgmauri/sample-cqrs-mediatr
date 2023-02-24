@@ -1,6 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Sample.MediatR.Application.Commands.ProductSaveCommand;
+using Sample.MediatR.Application.Commands;
 
 namespace Sample.MediatR.WebApi.Controllers;
 
@@ -18,6 +18,14 @@ public class CommandsController : Controller
     public async Task<IActionResult> PostProductAsync([FromBody] ProductSaveCommand product)
     {
         var command = await _mediator.Send(product);
+
+        return Json(command);
+    }
+
+    [HttpPost("client")]
+    public async Task<IActionResult> PostClientAsync([FromBody] ClientSaveCommand client)
+    {
+        var command = await _mediator.Send(client);
 
         return Json(command);
     }
