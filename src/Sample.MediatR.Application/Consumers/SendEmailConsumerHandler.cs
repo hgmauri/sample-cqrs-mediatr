@@ -17,7 +17,12 @@ public class SendEmailConsumerHandler : IConsumer<SendEmailEvent>
 
     public Task Consume(ConsumeContext<SendEmailEvent> context)
     {
-        //send email
+        //validações
+
+        //pode chamar outros handlers
+
+        //insere registros na base
+
         _mediator.Send(new ProductSaveCommand { Description = "teste" });
         return Task.CompletedTask;
     }

@@ -9,6 +9,12 @@ public class SendNotificationNotificationHandler : INotificationHandler<SendEmai
 {
     public Task Handle(SendEmailNotification notification, CancellationToken cancellationToken)
     {
+        //validações
+
+        //pode chamar outros handlers
+
+        //insere registros na base
+
         return Task.Run(() => Log.Information($"Successful email event. To: {notification.Email}"));
     }
 }

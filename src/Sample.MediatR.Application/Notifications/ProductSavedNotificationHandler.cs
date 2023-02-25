@@ -10,6 +10,12 @@ public class ProductSavedNotificationHandler : INotificationHandler<ProductSaved
 {
     public Task Handle(ProductSavedNotification notification, CancellationToken cancellationToken)
     {
+        //validações
+
+        //pode chamar outros handlers
+
+        //insere registros na base
+
         return Task.Run(() => Log.Information($"Successful product event. Id: {notification.Id}"));
     }
 }

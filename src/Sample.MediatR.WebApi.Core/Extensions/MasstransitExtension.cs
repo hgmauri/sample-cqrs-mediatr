@@ -1,5 +1,5 @@
-using Microsoft.Extensions.DependencyInjection;
 using MassTransit;
+using Microsoft.Extensions.DependencyInjection;
 using Sample.MediatR.Application.Consumers;
 
 namespace Sample.MediatR.WebApi.Core.Extensions;

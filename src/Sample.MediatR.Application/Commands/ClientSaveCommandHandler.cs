@@ -1,29 +1,30 @@
-using MassTransit;
-using MediatR;
-using Serilog;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using MassTransit;
+using MediatR;
 using Sample.MediatR.Application.Consumers;
+using Serilog;
 
 namespace Sample.MediatR.Application.Commands;
 
 public class ClientSaveCommandHandler : IRequestHandler<ClientSaveCommand, string>
 {
-    private readonly IMediator _mediator;
     private readonly IPublishEndpoint _publish;
 
-    public ClientSaveCommandHandler(IMediator mediator, IPublishEndpoint publish)
+    public ClientSaveCommandHandler(IPublishEndpoint publish)
     {
-        _mediator = mediator;
         _publish = publish;
     }
 
     public async Task<string> Handle(ClientSaveCommand request, CancellationToken cancellationToken)
     {
+        //validações
+
         //insert product in database
         Log.Information($"Client saved successfully. Id: {request.Id}");
 
+        //envia notificação de forma assíncrona
         await _publish.Publish(new SendEmailEvent { Email = "teste@email.com" }, cancellationToken);
 
         return await Task.FromResult("Ok");

@@ -18,9 +18,12 @@ public class ProductSaveCommandHandler : IRequestHandler<ProductSaveCommand, str
 
     public async Task<string> Handle(ProductSaveCommand request, CancellationToken cancellationToken)
     {
+        //validações
+
         //insert product in database
         Log.Information($"Product saved successfully. Id: {request.Id}");
 
+        //envia notificações de forma síncrona
         await _mediator.Publish(new ProductSavedNotification { Id = request.Id }, cancellationToken);
         await _mediator.Publish(new SendEmailNotification { Email = "test@mail.com" }, cancellationToken);
 
