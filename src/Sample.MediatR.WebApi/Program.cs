@@ -1,29 +1,25 @@
+using Microsoft.EntityFrameworkCore;
+using Sample.MediatR.Application;
+using Sample.MediatR.Persistence.Context;
 using Sample.MediatR.WebApi.Core.Extensions;
 using Serilog;
 
 try
 {
     var builder = WebApplication.CreateBuilder(args);
-    builder.AddSerilog("API MediatR");
+    builder.AddSerilog("API MediatR", builder.Configuration);
 
-    builder.Services.AddRouting(options => options.LowercaseUrls = true);
-    builder.Services.AddControllers();
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-
+    builder.Services.AddApiConfiguration();
+   
+    builder.Services.AddDbContext<ClientContext>(opt => opt.UseInMemoryDatabase("ClientContext"));
+    builder.Services.AddAutoMapper(typeof(MapperProfile));
+    builder.Services.AddElasticsearch(builder.Configuration);
     builder.Services.AddMediatRApi();
     builder.Services.AddMassTransitExtension();
 
     var app = builder.Build();
-
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.UseAuthorization();
-    app.MapControllers();
+    app.UseApiConfiguration();
+    app.UseElasticApm(builder.Configuration);
 
     await app.RunAsync();
 }

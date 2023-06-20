@@ -5,7 +5,7 @@ using Serilog;
 
 namespace Sample.MediatR.Application.Notifications;
 
-public class SendNotificationNotificationHandler : INotificationHandler<SendEmailNotification>
+public class SendEmailNotificationHandler : INotificationHandler<SendEmailNotification>
 {
     public Task Handle(SendEmailNotification notification, CancellationToken cancellationToken)
     {

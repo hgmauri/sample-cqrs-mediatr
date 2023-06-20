@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.MediatR.Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.MediatR.WebApi", "src\Sample.MediatR.WebApi\Sample.MediatR.WebApi.csproj", "{07F74506-E108-4939-ABD6-D6712FB5BED7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.MediatR.WebApi.Core", "src\Sample.MediatR.WebApi.Core\Sample.MediatR.WebApi.Core.csproj", "{04875390-7C1B-4A7D-8BFB-27B7D969E759}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample.MediatR.WebApi.Core", "src\Sample.MediatR.WebApi.Core\Sample.MediatR.WebApi.Core.csproj", "{8C4FA340-2C4E-4269-B945-7E8264A6625F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.MediatR.Persistence", "src\Sample.MediatR.Persistence\Sample.MediatR.Persistence.csproj", "{094142C4-377D-40DD-BEB6-C3F065953CF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,14 @@ Global
 		{07F74506-E108-4939-ABD6-D6712FB5BED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07F74506-E108-4939-ABD6-D6712FB5BED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07F74506-E108-4939-ABD6-D6712FB5BED7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{04875390-7C1B-4A7D-8BFB-27B7D969E759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{04875390-7C1B-4A7D-8BFB-27B7D969E759}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{04875390-7C1B-4A7D-8BFB-27B7D969E759}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{04875390-7C1B-4A7D-8BFB-27B7D969E759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4FA340-2C4E-4269-B945-7E8264A6625F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4FA340-2C4E-4269-B945-7E8264A6625F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4FA340-2C4E-4269-B945-7E8264A6625F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4FA340-2C4E-4269-B945-7E8264A6625F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{094142C4-377D-40DD-BEB6-C3F065953CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{094142C4-377D-40DD-BEB6-C3F065953CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{094142C4-377D-40DD-BEB6-C3F065953CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{094142C4-377D-40DD-BEB6-C3F065953CF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

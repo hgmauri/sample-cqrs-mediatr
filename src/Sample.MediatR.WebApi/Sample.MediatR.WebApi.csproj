@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sample.MediatR.Application\Sample.MediatR.Application.csproj" />
+    <ProjectReference Include="..\Sample.MediatR.Persistence\Sample.MediatR.Persistence.csproj" />
     <ProjectReference Include="..\Sample.MediatR.WebApi.Core\Sample.MediatR.WebApi.Core.csproj" />
   </ItemGroup>
 

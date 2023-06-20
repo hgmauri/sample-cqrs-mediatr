@@ -6,9 +6,9 @@ using Serilog;
 
 namespace Sample.MediatR.Application.Notifications;
 
-public class ProductSavedNotificationHandler : INotificationHandler<ProductSavedNotification>
+public class AddProductNotificationHandler : INotificationHandler<AddProductNotification>
 {
-    public Task Handle(ProductSavedNotification notification, CancellationToken cancellationToken)
+    public Task Handle(AddProductNotification notification, CancellationToken cancellationToken)
     {
         //validações
 
@@ -20,7 +20,7 @@ public class ProductSavedNotificationHandler : INotificationHandler<ProductSaved
     }
 }
 
-public class ProductSavedNotification : INotification
+public class AddProductNotification : INotification
 {
     public Guid Id { get; set; }
 }

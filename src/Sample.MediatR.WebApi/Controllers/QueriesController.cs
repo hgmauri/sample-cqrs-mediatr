@@ -15,7 +15,7 @@ public class QueriesController : Controller
     }
 
     [HttpGet("product")]
-    public async Task<IActionResult> GetProductByIdAsync([FromQuery] ProductByIdQuery product)
+    public async Task<IActionResult> GetProductByIdAsync([FromQuery] GetProductsQuery product)
     {
         var queryProduct = await _mediator.Send(product);
 

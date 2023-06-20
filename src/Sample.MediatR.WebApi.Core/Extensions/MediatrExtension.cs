@@ -7,6 +7,6 @@ public static class MediatrExtension
 {
     public static void AddMediatRApi(this IServiceCollection services)
     {
-        services.AddMediatR(configuration => configuration.RegisterServicesFromAssemblyContaining(typeof(ProductByIdQuery)));
+        services.AddMediatR(configuration => configuration.RegisterServicesFromAssemblyContaining(typeof(GetProductsQuery)));
     }
 }

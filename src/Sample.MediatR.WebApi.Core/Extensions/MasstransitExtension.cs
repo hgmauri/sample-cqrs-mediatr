@@ -13,6 +13,7 @@ public static class MasstransitExtension
             x.SetKebabCaseEndpointNameFormatter();
 
             x.AddConsumer<SendEmailConsumerHandler>(typeof(SendEmailConsumerHandlerDefinition));
+            x.AddConsumer<IndexClientProductConsumerHandler>(typeof(IndexClientProductConsumerDefinition));
 
             x.UsingInMemory((ctx, cfg) =>
             {
