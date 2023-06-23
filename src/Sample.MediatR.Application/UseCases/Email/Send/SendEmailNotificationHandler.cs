@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Serilog;
 
-namespace Sample.MediatR.Application.Notifications;
+namespace Sample.MediatR.Application.UseCases.Email.Send;
 
 public class SendEmailNotificationHandler : INotificationHandler<SendEmailNotification>
 {
@@ -17,9 +17,4 @@ public class SendEmailNotificationHandler : INotificationHandler<SendEmailNotifi
 
         return Task.Run(() => Log.Information($"Successful email event. To: {notification.Email}"));
     }
-}
-
-public class SendEmailNotification : INotification
-{
-    public string Email { get; set; }
 }

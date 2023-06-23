@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using MediatR;
 
-namespace Sample.MediatR.Application.Consumers;
+namespace Sample.MediatR.Application.Consumers.SendEmail;
 
 public class SendEmailConsumerHandler : IConsumer<SendEmailEvent>
 {
@@ -22,14 +22,9 @@ public class SendEmailConsumerHandler : IConsumer<SendEmailEvent>
 
         //insere registros na base
 
-        //_mediator.Send(new AddProductCommand { Descricao = "teste" });
+        //_mediator.Send(new CreateProductCommand { Descricao = "teste" });
         return Task.CompletedTask;
     }
-}
-
-public class SendEmailEvent
-{
-    public string Email { get; set; }
 }
 
 public class SendEmailConsumerHandlerDefinition : ConsumerDefinition<SendEmailConsumerHandler>

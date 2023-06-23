@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Sample.MediatR.Application.Commands;
-using Sample.MediatR.Application.Queries;
+using Sample.MediatR.Application.UseCases.Product.Create;
+using Sample.MediatR.Application.UseCases.Product.Get;
 
 namespace Sample.MediatR.WebApi.Controllers;
 
@@ -16,10 +16,10 @@ public class ProductController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostProductAsync([FromBody] AddProductCommand addProduct)
+    public async Task<IActionResult> PostProductAsync([FromBody] CreateProductCommand createProduct)
     {
-        addProduct.Id = Guid.NewGuid();
-        var command = await _mediator.Send(addProduct);
+        createProduct.Id = Guid.NewGuid();
+        var command = await _mediator.Send(createProduct);
 
         return Json(command);
     }

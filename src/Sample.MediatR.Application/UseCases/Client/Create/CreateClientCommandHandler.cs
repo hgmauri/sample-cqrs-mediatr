@@ -1,32 +1,32 @@
 using System;
-using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
+using Consumers;
 using MassTransit;
 using MediatR;
-using Sample.MediatR.Application.Consumers;
+using Sample.MediatR.Application.Consumers.SendEmail;
 using Sample.MediatR.Persistence.Context;
 using Serilog;
 
-namespace Sample.MediatR.Application.Commands;
+namespace Sample.MediatR.Application.UseCases.Client.Create;
 
-public class AddClientCommandHandler : IRequestHandler<AddClientCommand, Guid>
+public class CreateClientCommandHandler : IRequestHandler<CreateClientCommand, Guid>
 {
     private readonly IMapper _mapper;
     private readonly IPublishEndpoint _bus;
     private readonly ClientContext _context;
 
-    public AddClientCommandHandler(IPublishEndpoint publish, ClientContext context, IMapper mapper)
+    public CreateClientCommandHandler(IPublishEndpoint publish, ClientContext context, IMapper mapper)
     {
         _bus = publish;
         _context = context;
         _mapper = mapper;
     }
 
-    public async Task<Guid> Handle(AddClientCommand request, CancellationToken cancellationToken)
+    public async Task<Guid> Handle(CreateClientCommand request, CancellationToken cancellationToken)
     {
-        var entity = _mapper.Map<Client>(request);
+        var entity = _mapper.Map<Persistence.Context.Client>(request);
 
         await _context.Clients.AddAsync(entity);
         await _context.SaveChangesAsync();
@@ -37,13 +37,4 @@ public class AddClientCommandHandler : IRequestHandler<AddClientCommand, Guid>
 
         return await Task.FromResult(request.Id);
     }
-}
-
-public class AddClientCommand : IRequest<Guid>
-{
-    [JsonIgnore]
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string Nome { get; set; }
-    public string Email { get; set; }
-    public DateTime DataNascimento { get; set; }
 }

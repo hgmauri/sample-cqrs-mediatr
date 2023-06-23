@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Sample.MediatR.Application.Commands;
-using Sample.MediatR.Application.Queries;
+using Sample.MediatR.Application.UseCases.Client.Create;
+using Sample.MediatR.Application.UseCases.Client.Get;
 
 namespace Sample.MediatR.WebApi.Controllers;
 
@@ -16,7 +16,7 @@ public class ClientController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostClientAsync([FromBody] AddClientCommand client)
+    public async Task<IActionResult> PostClientAsync([FromBody] CreateClientCommand client)
     {
         client.Id = Guid.NewGuid();
         var command = await _mediator.Send(client);
