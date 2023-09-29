@@ -21,4 +21,10 @@ public class QueriesController : Controller
 
         return Json(queryProduct);
     }
+
+    [HttpGet("exception")]
+    public Task<IActionResult> GetExceptionAsync()
+    {
+        throw new Exception("Erro aqui!");
+    }
 }

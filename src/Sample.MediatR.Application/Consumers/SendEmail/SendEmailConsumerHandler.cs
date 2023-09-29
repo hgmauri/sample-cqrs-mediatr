@@ -1,17 +1,14 @@
 using System;
 using System.Threading.Tasks;
+using Consumers;
 using MassTransit;
-using MediatR;
 
 namespace Sample.MediatR.Application.Consumers.SendEmail;
 
 public class SendEmailConsumerHandler : IConsumer<SendEmailEvent>
 {
-    private readonly IMediator _mediator;
-
-    public SendEmailConsumerHandler(IMediator mediator)
+    public SendEmailConsumerHandler()
     {
-        _mediator = mediator;
     }
 
     public Task Consume(ConsumeContext<SendEmailEvent> context)
@@ -29,7 +26,7 @@ public class SendEmailConsumerHandler : IConsumer<SendEmailEvent>
 
 public class SendEmailConsumerHandlerDefinition : ConsumerDefinition<SendEmailConsumerHandler>
 {
-    protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<SendEmailConsumerHandler> consumerConfigurator)
+    protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<SendEmailConsumerHandler> consumerConfigurator, IRegistrationContext context)
     {
         consumerConfigurator.UseMessageRetry(retry => retry.Interval(3, TimeSpan.FromSeconds(3)));
     }

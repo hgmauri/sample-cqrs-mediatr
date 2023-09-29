@@ -42,7 +42,7 @@ public class IndexClientProductConsumerHandler : IConsumer<IndexClientProductEve
 
 public class IndexClientProductConsumerDefinition : ConsumerDefinition<IndexClientProductConsumerHandler>
 {
-    protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<IndexClientProductConsumerHandler> consumerConfigurator)
+    protected override void ConfigureConsumer(IReceiveEndpointConfigurator endpointConfigurator, IConsumerConfigurator<IndexClientProductConsumerHandler> consumerConfigurator, IRegistrationContext context)
     {
         consumerConfigurator.UseMessageRetry(retry => retry.Interval(3, TimeSpan.FromSeconds(3)));
     }
